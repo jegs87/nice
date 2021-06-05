@@ -5,14 +5,19 @@
 </head>
 <body>
 
-<a href="https://niceonline.com.mx/nefnice" target="_blank">Café de Olla</a>
+<a href="https://niceonline.com.mx/Store/ItemDetail?Item=V300&LP=1" onclick="Delay();" target="_blank">Café de Olla</a><br>
 
-<script type="text/javascript">   
-    function Redirect() 
-    {  
+<script>
+
+    function Redirect() {  
         window.location="https://niceonline.com.mx/Store/ItemDetail?Item=V300&LP=1"; 
     } 
-    setTimeout('Redirect()', 8000);   
+    
+    function Delay() {
+    	window.open('https://niceonline.com.mx/Site/Main/nefnice', '_blank');
+    	setTimeout('Redirect()', 6000);
+    }
+
 </script>
 
 </body>
