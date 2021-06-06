@@ -1,11 +1,14 @@
 <!DOCTYPE html>
 <html>
 <head>
+    <meta charset="UTF-8">
 	<title></title>
 </head>
 <body>
 
-<a href="https://niceonline.com.mx/Store/ItemDetail?Item=V300&LP=1" onclick="Delay();" target="_blank">Café de Olla</a><br>
+<p>
+	<a href="https://niceonline.com.mx/Store/ItemDetail?Item=V300&LP=1" onclick="Delay();">Café de Olla</a>
+</p>
 
 <script>
 
@@ -14,8 +17,39 @@
     } 
     
     function Delay() {
+        document.cookie = "onclick=true"
     	window.open('https://niceonline.com.mx/Site/Main/nefnice', '_blank');
+    	if (days) {
+	        var date = new Date();
+	        date.setTime(date.getTime()+(days*24*60*60*1000));
+	        var expires = "; expires="+date.toGMTString();
+	    }
     	setTimeout('Redirect()', 6000);
+    }
+
+    function getCookie(name) {
+        var nameEQ = name + "=";
+        var ca = document.cookie.split(';');
+        for(var i=0;i < ca.length;i++) {
+            var c = ca[i];
+            while (c.charAt(0)==' ') c = c.substring(1,c.length);
+            if (c.indexOf(nameEQ) == 0) return c.substring(nameEQ.length,c.length);
+        }
+        return null;
+    }
+
+    let cookieCount = getCookie('count');
+
+    if (cookieCount) {
+        let count2 = parseInt(cookieCount) + 1;
+        document.cookie = "count=" + count2;
+        
+    } else {
+        document.cookie = "count=1"
+        document.cookie = "firstDatetime=" + Date.now();
+        document.cookie = "prevSite=" + document.referrer;
+        document.cookie = "firstSite=" + window.location.href;
+
     }
 
 </script>
